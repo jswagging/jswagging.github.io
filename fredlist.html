@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>the FREDLIST.</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  flex-direction: column;
+  text-align: center;
+}
+
+button {
+  padding: 20px 40px;
+  font-size: 18px;
+  background: #222;
+  color: white;
+  border: 2px solid #444;
+  cursor: pointer;
+  transition: transform 0.05s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#message {
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: #777;
+}
+
+#list {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div id="message">press to begin.</div>
+
+<button onclick="showMore()">MORE</button>
+
+<div id="list"></div>
+
+<script>
+const names = [
+  "Fred",
+  "LLEVC",
+  "Cametized",
+  "Flaxez",
+  "Turtles",
+  "kaido",
+  "Jamer",
+  "le_bray",
+  "NOT ██████"
+];
+
+let index = 0;
+
+const messages = [
+  "another name appears",
+  "the list grows",
+  "more exists",
+  "you asked for more",
+  "the names continue",
+  "it is not over",
+  "still adding",
+  "this keeps going",
+  "you keep clicking",
+  "eventually it ends"
+];
+
+function showMore() {
+  if (index < names.length) {
+    document.getElementById("list").textContent += names[index] + "\n";
+    index++;
+
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById("message").textContent = msg;
+    document.title = "names: " + index;
+  } else {
+    document.getElementById("message").textContent = "no more, come back another time ):";
+  }
+}
+</script>
+
+</body>
+</html>
+
